@@ -11,9 +11,9 @@ from utils import compute_gt_gradient, make_canvas_mask, numpy2tensor, laplacian
 import argparse
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--source_file', type=str, default=data/1_source.png, help='path to the source image')
-parser.add_argument('--mask_file', type=str, default=data/1_mask.png, help='path to the mask image')
-parser.add_argument('--target_file', type=str, default=data/1_target.png, help='path to the target image')
+parser.add_argument('--source_file', type=str, default='data/1_source.png', help='path to the source image')
+parser.add_argument('--mask_file', type=str, default='data/1_mask.png', help='path to the mask image')
+parser.add_argument('--target_file', type=str, default='data/1_target.png', help='path to the target image')
 parser.add_argument('--ss', type=int, default=300, help='source image size')
 parser.add_argument('--ts', type=int, default=512, help='target image size')
 parser.add_argument('--x', type=int, default=200, help='vertical location')
