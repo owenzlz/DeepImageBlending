@@ -2,13 +2,18 @@
 
 
 
-# Pytorch Implementation of Deep Image Blending
+# Deep Image Blending
 
-[Deep Image Blending](https://arxiv.org/pdf/1910.11495.pdf). 
+This is a Pytorch implementation of Deep Image Blending. 
+
+
+[Deep Image Blending](https://arxiv.org/pdf/1910.11495.pdf). (Under Review)
 
 [Lingzhi Zhang](https://owenzlz.github.io/), [Tarmily Wen], [Jianbo Shi](https://www.cis.upenn.edu/~jshi/)  
+
 University of Pennsylvania
-Under Review
+
+
 
  
 
