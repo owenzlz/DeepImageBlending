@@ -1,7 +1,3 @@
-
-
-
-
 # Deep Image Blending
 This is a Pytorch implementation of our paper "Deep Image Blending". 
 
