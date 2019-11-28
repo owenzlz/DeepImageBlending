@@ -28,3 +28,14 @@ We propose a Poisson blending loss that achieves the same purpose of Poisson Ima
 <img src='demo_imgs/real_comparison.png' align="middle" width=720>
 
 
+## Citation
+If you use this code for your research, please cite our [paper](https://junyanz.github.io/CycleGAN/):
+
+```
+@article{zhang2019deep,
+  title={Deep Image Blending},
+  author={Zhang, Lingzhi and Wen, Tarmily and Shi, Jianbo},
+  journal={arXiv preprint arXiv:1910.11495},
+  year={2019}
+}
+```
