@@ -10,7 +10,7 @@ This is a Pytorch implementation of our paper "Deep Image Blending".
 GRASP Laboratory, University of Pennsylvania
 
 [Deep Image Blending](https://arxiv.org/pdf/1910.11495.pdf)  
- [Jun-Yan Zhu](https://people.eecs.berkeley.edu/~junyanz/)\*,  [Taesung Park](https://taesung.me/)\*, [Phillip Isola](http://web.mit.edu/phillipi/), [Alexei A. Efros](https://people.eecs.berkeley.edu/~efros/)  
+ [Jun-Yan Zhu](https://people.eecs.berkeley.edu/~junyanz/)\*
  Berkeley AI Research Lab, UC Berkeley  
  In ICCV 2017. (* equal contributions)  
 
