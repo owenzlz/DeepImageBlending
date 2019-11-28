@@ -29,7 +29,7 @@ We propose a Poisson blending loss that achieves the same purpose of Poisson Ima
 
 
 ## Citation
-If you use this code for your research, please cite our [paper](https://junyanz.github.io/CycleGAN/):
+If you use this code for your research, please cite our [paper](https://arxiv.org/pdf/1910.11495.pdf):
 
 ```
 @article{zhang2019deep,
