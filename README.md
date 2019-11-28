@@ -3,14 +3,16 @@
 
 
 # Deep Image Blending
-
 This is a Pytorch implementation of our paper "Deep Image Blending". 
 
-[Deep Image Blending](https://arxiv.org/pdf/1910.11495.pdf) \n
+[Deep Image Blending](https://arxiv.org/pdf/1910.11495.pdf)
 [Lingzhi Zhang](https://owenzlz.github.io/), Tarmily Wen, [Jianbo Shi](https://www.cis.upenn.edu/~jshi/)  
 GRASP Laboratory, University of Pennsylvania
 
-
+[Unpaired Image-to-Image Translation using Cycle-Consistent Adversarial Networks](https://junyanz.github.io/CycleGAN/)  
+ [Jun-Yan Zhu](https://people.eecs.berkeley.edu/~junyanz/)\*,  [Taesung Park](https://taesung.me/)\*, [Phillip Isola](http://web.mit.edu/phillipi/), [Alexei A. Efros](https://people.eecs.berkeley.edu/~efros/)  
+ Berkeley AI Research Lab, UC Berkeley  
+ In ICCV 2017. (* equal contributions)  
 
  
 
