@@ -5,12 +5,12 @@
 # Deep Image Blending
 This is a Pytorch implementation of our paper "Deep Image Blending". 
 
-[Deep Image Blending](https://arxiv.org/pdf/1910.11495.pdf)
+[Deep Image Blending](https://arxiv.org/pdf/1910.11495.pdf) <br />
 [Lingzhi Zhang](https://owenzlz.github.io/), Tarmily Wen, [Jianbo Shi](https://www.cis.upenn.edu/~jshi/)  
 GRASP Laboratory, University of Pennsylvania
 
 [Deep Image Blending](https://arxiv.org/pdf/1910.11495.pdf)  
-[Lingzhi Zhang](https://owenzlz.github.io/), Tarmily Wen, [Jianbo Shi](https://www.cis.upenn.edu/~jshi/) 
+[Lingzhi Zhang](https://owenzlz.github.io/), Tarmily Wen, [Jianbo Shi](https://www.cis.upenn.edu/~jshi/) <br />
 GRASP Laboratory, University of Pennsylvania
 
  
