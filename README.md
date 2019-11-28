@@ -11,7 +11,7 @@ GRASP Laboratory, University of Pennsylvania
 
 [Deep Image Blending](https://arxiv.org/pdf/1910.11495.pdf)  
 [Lingzhi Zhang](https://owenzlz.github.io/), Tarmily Wen, [Jianbo Shi](https://www.cis.upenn.edu/~jshi/) 
- Berkeley AI Research Lab, UC Berkeley  
+GRASP Laboratory, University of Pennsylvania
  In ICCV 2017. (* equal contributions)  
 
  
