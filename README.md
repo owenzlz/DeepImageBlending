@@ -17,6 +17,10 @@ We propose a Poisson blending loss that achieves the same purpose of Poisson Ima
 
 [TODO]
 
+## Ablation Study
+
+<img src='demo_imgs/ablation_study.png' align="middle" width=720>
+
 
 ## Example results for paintings
 
