@@ -1,11 +1,11 @@
 # Deep Image Blending
 This is a Pytorch implementation of our paper "Deep Image Blending". 
 
-[Deep Image Blending](https://arxiv.org/pdf/1910.11495.pdf) <br />
+[Deep Image Blending](http://openaccess.thecvf.com/content_WACV_2020/papers/Zhang_Deep_Image_Blending_WACV_2020_paper.pdf) <br />
 [Lingzhi Zhang](https://owenzlz.github.io/), Tarmily Wen, [Jianbo Shi](https://www.cis.upenn.edu/~jshi/)  <br />
 GRASP Laboratory, University of Pennsylvania
 
- 
+In Winter Conference on Applications of Computer Vision (WACV), 2020
 
 ## Introduction
 
@@ -15,7 +15,9 @@ We propose a Poisson blending loss that achieves the same purpose of Poisson Ima
 
 ## Usage
 
-[TODO]
+"Python train.py"
+
+Please check the arguments in the code for you application. 
 
 ## Ablation Study
 
@@ -33,13 +35,14 @@ We propose a Poisson blending loss that achieves the same purpose of Poisson Ima
 
 
 ## Citation
-If you use this code for your research, please cite our [paper](https://arxiv.org/pdf/1910.11495.pdf):
+If you use this code for your research, please cite our [paper](http://openaccess.thecvf.com/content_WACV_2020/papers/Zhang_Deep_Image_Blending_WACV_2020_paper.pdf):
 
 ```
-@article{zhang2019deep,
+@inproceedings{zhang2020deep,
   title={Deep Image Blending},
   author={Zhang, Lingzhi and Wen, Tarmily and Shi, Jianbo},
-  journal={arXiv preprint arXiv:1910.11495},
-  year={2019}
+  booktitle={The IEEE Winter Conference on Applications of Computer Vision},
+  pages={231--240},
+  year={2020}
 }
 ```
