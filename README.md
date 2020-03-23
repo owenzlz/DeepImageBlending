@@ -15,7 +15,7 @@ We propose a Poisson blending loss that achieves the same purpose of Poisson Ima
 
 ## Usage
 
-"Python train.py"
+In terminal, execute the following command: python run.py
 
 Please check the arguments in the code for you application. 
 
