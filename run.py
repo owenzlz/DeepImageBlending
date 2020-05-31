@@ -121,9 +121,6 @@ while run[0] <= num_steps:
                    torch.sum(torch.abs(blend_img[:, :, :-1, :] - blend_img[:, :, 1:, :]))
         tv_loss *= tv_weight
         
-        # Compute Histogram Reg Loss
-        
-        
         # Compute Total Loss and Update Image
         loss = grad_loss + style_loss + content_loss + tv_loss
         optimizer.zero_grad()
