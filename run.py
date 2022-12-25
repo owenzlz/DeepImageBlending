@@ -171,6 +171,9 @@ target_img = np.array(Image.open(target_file).convert('RGB').resize((ts, ts)))
 first_pass_img = torch.from_numpy(first_pass_img).unsqueeze(0).transpose(1,3).transpose(2,3).float().to(gpu_id)
 target_img = torch.from_numpy(target_img).unsqueeze(0).transpose(1,3).transpose(2,3).float().to(gpu_id)
 
+first_pass_img = first_pass_img.contiguous()
+target_img = target_img.contiguous()
+
 # Define LBFGS optimizer
 def get_input_optimizer(first_pass_img):
     optimizer = optim.LBFGS([first_pass_img.requires_grad_()])
