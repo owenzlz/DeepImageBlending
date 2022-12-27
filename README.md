@@ -14,10 +14,19 @@ We propose a Poisson blending loss that achieves the same purpose of Poisson Ima
 <img src='demo_imgs/first_demo.png' align="middle" width=540>
 
 ## Usage
+This project uses [poetry](https://python-poetry.org/) to manage dependencies; start by install poetry and then dependencies
 
-In terminal, execute the following command: python run.py
+```bash
+pip install poetry
+poetry install
+```
+Once this is done you can run the example. Please check the arguments in the code for you application. 
 
-Please check the arguments in the code for you application. 
+```bash
+poetry run python run.py
+# check arguments
+poetry run python run.py --help
+``` 
 
 ## Ablation Study
 

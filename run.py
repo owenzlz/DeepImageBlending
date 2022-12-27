@@ -1,10 +1,8 @@
 # Packages
-import pdb
 import numpy as np
 import torch
 import torch.optim as optim
 from PIL import Image
-import matplotlib.pyplot as plt
 from skimage.io import imsave
 from utils import compute_gt_gradient, make_canvas_mask, numpy2tensor, laplacian_filter_tensor, \
                   MeanShift, Vgg16, gram_matrix

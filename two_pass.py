@@ -6,12 +6,10 @@ Created on Sun Sep 22 17:28:28 2019
 """
 
 # Packages
-import pdb
 import numpy as np
 import torch
 import torch.optim as optim
 from PIL import Image
-import matplotlib.pyplot as plt
 from skimage.io import imsave
 from utils import *
 

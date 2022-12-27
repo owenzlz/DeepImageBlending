@@ -7,23 +7,14 @@ Created on Sun Sep 22 17:28:28 2019
 
 from torch.nn import functional as F
 import torch.nn as nn
-from PIL import Image 
 import numpy as np
-from skimage.io import imsave
-import cv2
 import torch.nn as nn
 import torch
-from torch.autograd import Variable
 from torchvision import models
 from collections import namedtuple
-import pdb
-import copy
 import time
-import random
 
 import asyncio
-import aiohttp
-import async_timeout
 
 
 def numpy2tensor(np_array, gpu_id):
