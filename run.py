@@ -14,11 +14,11 @@ parser.add_argument('--mask_file', type=str, default='data/1_mask.png', help='pa
 parser.add_argument('--target_file', type=str, default='data/1_target.png', help='path to the target image')
 parser.add_argument('--ss', type=int, default=300, help='source image size')
 parser.add_argument('--ts', type=int, default=512, help='target image size')
-parser.add_argument('--x', type=int, default=200, help='vertical location')
-parser.add_argument('--y', type=int, default=235, help='vertical location')
+parser.add_argument('--x', type=int, default=200, help='vertical location (center)')
+parser.add_argument('--y', type=int, default=235, help='vertical location (center)')
 parser.add_argument('--gpu_id', type=int, default=0, help='GPU ID')
 parser.add_argument('--num_steps', type=int, default=1000, help='Number of iterations in each pass')
-
+parser.add_argument('save_video', type=bool, default=False, help='save the intermediate reconstruction process')
 opt = parser.parse_args()
 
 ###################################
@@ -227,6 +227,8 @@ input_img_np = first_pass_img.transpose(1,3).transpose(1,2).cpu().data.numpy()[0
 
 # Save image from the second pass
 imsave('results/'+str(name)+'_second_pass.png', input_img_np.astype(np.uint8))
+
+
 
 
 
