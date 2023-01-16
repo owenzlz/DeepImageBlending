@@ -4,22 +4,35 @@ import torch
 import torch.optim as optim
 from PIL import Image
 from skimage.io import imsave
+from torchvision.utils import save_image
 from utils import compute_gt_gradient, make_canvas_mask, numpy2tensor, laplacian_filter_tensor, \
                   MeanShift, Vgg16, gram_matrix
 import argparse
+import pdb
+import os
+import imageio.v2 as iio
+import torch.nn.functional as F
+
+
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--source_file', type=str, default='data/1_source.png', help='path to the source image')
 parser.add_argument('--mask_file', type=str, default='data/1_mask.png', help='path to the mask image')
 parser.add_argument('--target_file', type=str, default='data/1_target.png', help='path to the target image')
+parser.add_argument('--output_dir', type=str, default='results/1', help='path to output')
 parser.add_argument('--ss', type=int, default=300, help='source image size')
 parser.add_argument('--ts', type=int, default=512, help='target image size')
 parser.add_argument('--x', type=int, default=200, help='vertical location (center)')
 parser.add_argument('--y', type=int, default=235, help='vertical location (center)')
 parser.add_argument('--gpu_id', type=int, default=0, help='GPU ID')
 parser.add_argument('--num_steps', type=int, default=1000, help='Number of iterations in each pass')
-parser.add_argument('save_video', type=bool, default=False, help='save the intermediate reconstruction process')
+parser.add_argument('--save_video', type=bool, default=False, help='save the intermediate reconstruction process')
 opt = parser.parse_args()
+
+
+os.makedirs(opt.output_dir, exist_ok = True)
+
+
 
 ###################################
 ########### First Pass ###########
@@ -75,6 +88,10 @@ mse = torch.nn.MSELoss()
 mean_shift = MeanShift(gpu_id)
 vgg = Vgg16().to(gpu_id)
 
+# Save reconstruction process in a video
+if opt.save_video:
+    recon_process_video = iio.get_writer(os.path.join(opt.output_dir, 'recon_process.mp4'), format='FFMPEG', mode='I', fps=400)
+
 run = [0]
 while run[0] <= num_steps:
     
@@ -123,6 +140,20 @@ while run[0] <= num_steps:
         loss = grad_loss + style_loss + content_loss + tv_loss
         optimizer.zero_grad()
         loss.backward()
+
+        # Write to output to a reconstruction video 
+        if opt.save_video:
+            foreground = input_img*canvas_mask
+            foreground = (foreground - foreground.min()) / (foreground.max() - foreground.min())
+            background = target_img*(canvas_mask-1)*(-1)
+            background = background / 255.0
+            final_blend_img =  + foreground + background
+            if run[0] < 200:
+                # more frames for early optimization by repeatedly appending the frames
+                for _ in range(10):
+                    recon_process_video.append_data(final_blend_img[0].transpose(0,2).transpose(0,1).cpu().data.numpy())
+            else:
+                recon_process_video.append_data(final_blend_img[0].transpose(0,2).transpose(0,1).cpu().data.numpy())
         
         # Print Loss
         if run[0] % 1 == 0:
@@ -149,10 +180,8 @@ blend_img = input_img*canvas_mask + target_img*(canvas_mask-1)*(-1)
 blend_img_np = blend_img.transpose(1,3).transpose(1,2).cpu().data.numpy()[0]
 
 # Save image from the first pass
-name = source_file.split('/')[1].split('_')[0]
-imsave('results/'+str(name)+'_first_pass.png', blend_img_np.astype(np.uint8))
-
-
+first_pass_img_file = os.path.join(opt.output_dir, 'first_pass.png')
+imsave(first_pass_img_file, blend_img_np.astype(np.uint8))
 
 ###################################
 ########### Second Pass ###########
@@ -163,7 +192,6 @@ style_weight = 1e7; content_weight = 1; tv_weight = 1e-6
 ss = 512; ts = 512
 num_steps = opt.num_steps
 
-first_pass_img_file = 'results/'+str(name)+'_first_pass.png'
 first_pass_img = np.array(Image.open(first_pass_img_file).convert('RGB').resize((ss, ss)))
 target_img = np.array(Image.open(target_file).convert('RGB').resize((ts, ts)))
 first_pass_img = torch.from_numpy(first_pass_img).unsqueeze(0).transpose(1,3).transpose(2,3).float().to(gpu_id)
@@ -204,6 +232,15 @@ while run[0] <= num_steps:
         loss = style_loss + content_loss
         optimizer.zero_grad()
         loss.backward()
+
+        # Write to output to a reconstruction video 
+        if opt.save_video:
+            foreground = first_pass_img*canvas_mask
+            foreground = (foreground - foreground.min()) / (foreground.max() - foreground.min())
+            background = target_img*(canvas_mask-1)*(-1)
+            background = background / 255.0
+            final_blend_img =  + foreground + background
+            recon_process_video.append_data(final_blend_img[0].transpose(0,2).transpose(0,1).cpu().data.numpy())
         
         # Print Loss
         if run[0] % 1 == 0:
@@ -226,9 +263,11 @@ first_pass_img.data.clamp_(0, 255)
 input_img_np = first_pass_img.transpose(1,3).transpose(1,2).cpu().data.numpy()[0]
 
 # Save image from the second pass
-imsave('results/'+str(name)+'_second_pass.png', input_img_np.astype(np.uint8))
+imsave(os.path.join(opt.output_dir, 'second_pass.png'), input_img_np.astype(np.uint8))
 
-
+# Save recon process video
+if opt.save_video:
+    recon_process_video.close()
 
 
 
