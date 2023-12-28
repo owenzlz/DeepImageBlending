@@ -42,6 +42,10 @@ poetry run python run.py --help
 
 <img src='demo_imgs/real_comparison.png' align="middle" width=720>
 
+| Colab | Info
+| --- | --- |
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/mumerfarooq000/DeepImageBlending/blob/master/deep_image_blending.ipynb)
+
 
 ## Citation
 If you use this code for your research, please cite our [paper](http://openaccess.thecvf.com/content_WACV_2020/papers/Zhang_Deep_Image_Blending_WACV_2020_paper.pdf):
