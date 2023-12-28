@@ -7,6 +7,10 @@ GRASP Laboratory, University of Pennsylvania
 
 In Winter Conference on Applications of Computer Vision (WACV), 2020
 
+| Colab | Info
+| --- | --- |
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/mumerfarooq000/DeepImageBlending/blob/master/deep_image_blending.ipynb) | Demo Deep Image Blending
+
 ## Introduction
 
 We propose a Poisson blending loss that achieves the same purpose of Poisson Image Editing. We jointly optimize the proposed Poisson blending loss with style and content loss computed from a deep network, and reconstruct the blending region by iteratively updating the pixels using the L-BFGS solver. In the blending image, we not only smooth out gradient domain of the blending boundary but also add consistent texture into the blending region.
@@ -42,9 +46,6 @@ poetry run python run.py --help
 
 <img src='demo_imgs/real_comparison.png' align="middle" width=720>
 
-| Colab | Info
-| --- | --- |
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/mumerfarooq000/DeepImageBlending/blob/master/deep_image_blending.ipynb)
 
 
 ## Citation
